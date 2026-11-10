@@ -1,0 +1,36 @@
+{% extends "templates/web.html" %}
+{% block page_content %}
+<link rel="stylesheet" href="/assets/restaurant_management/css/restaurant.css">
+<main class="rh-shell rh-waiter" id="waiter-app">
+  <header class="rh-topbar"><a href="/" class="rh-wordmark"><span>✳</span> FOODHUB <small>ORDER SERVICE</small></a><div class="rh-top-actions"><span class="rh-user-chip">Waiter workspace</span><button type="button" class="rh-button rh-button-quiet" data-restaurant-logout>Sign out</button></div></header>
+  <section class="rh-page-heading"><div><span class="rh-eyebrow">FRONT OF HOUSE · SERVICE DESK</span><h1>Let’s make their meal.</h1><p>Build an order from the live menu, send it to the kitchen, and follow its progress.</p></div><button type="button" class="rh-button rh-button-outline" id="waiter-refresh">↻ &nbsp;Refresh</button></section>
+  <section class="rh-stat-grid rh-waiter-stats" aria-label="Order overview"><article class="rh-stat"><span>ORDERS VISIBLE</span><strong id="waiter-stat-total">—</strong><small>Available to your account</small></article><article class="rh-stat"><span>WAITING IN KITCHEN</span><strong id="waiter-stat-pending">—</strong><small>Sent for preparation</small></article><article class="rh-stat rh-stat-accent"><span>MENU TODAY</span><strong id="waiter-stat-menu">—</strong><small>Available dishes to order</small></article></section>
+  <nav class="rh-waiter-tabs" aria-label="Waiter workspace"><button type="button" class="rh-tab is-active" data-view="new-order">＋ &nbsp;New order</button><button type="button" class="rh-tab" data-view="existing-orders">▤ &nbsp;Existing orders <span id="waiter-order-count">0</span></button></nav>
+  <section id="new-order-view" class="rh-waiter-view">
+    <div class="rh-waiter-layout">
+      <section class="rh-panel rh-menu-panel"><div class="rh-panel-heading"><div><span class="rh-eyebrow">THE MENU</span><h2>Choose from the kitchen</h2></div><span class="rh-menu-live"><i></i> AVAILABLE NOW</span></div>
+        <label class="rh-menu-search"><span>⌕</span><input id="waiter-menu-search" type="search" placeholder="Find a dish…" autocomplete="off"><kbd>/</kbd></label>
+        <div id="category-filter" class="rh-category-filter" aria-label="Filter menu by category"><button type="button" class="rh-filter-chip is-active" data-category="all">Everything</button></div>
+        <div id="menu-message" class="rh-inline-message" aria-live="polite">Loading today’s menu…</div>
+        <div id="menu-container" class="rh-menu-grid"><div class="rh-empty">Loading menu…</div></div>
+      </section>
+      <aside class="rh-panel rh-order-panel"><div class="rh-panel-heading"><div><span class="rh-eyebrow">NEW RESTAURANT ORDER</span><h2>Order details</h2></div><span class="rh-order-step">01 <i>/ 02</i></span></div>
+        <div class="rh-form-grid"><label>Customer name<input id="customer-name" class="rh-input" type="text" placeholder="Name for the order" maxlength="140" autocomplete="off"></label><label>Order type<select id="order-type" class="rh-input"><option value="Dine-in">Dine-in</option><option value="Takeaway">Takeaway</option><option value="Delivery">Delivery</option></select></label></div>
+        <div class="rh-cart-heading"><h3>Your selection</h3><span id="cart-count">0 items</span></div>
+        <div id="cart-items" class="rh-cart-items"><div class="rh-cart-empty"><span>＋</span><b>Your order starts here</b><small>Add dishes from the menu to begin.</small></div></div>
+        <label class="rh-discount-field">Discount <span>₹</span><input id="discount" class="rh-input" type="number" value="0" min="0" step="0.01" inputmode="decimal"></label>
+        <div class="rh-total-list"><div><span>Subtotal</span><b id="subtotal">₹0.00</b></div><div><span>Tax</span><b id="tax-amount">₹0.00</b></div><div class="rh-grand-total"><span>Total due</span><b id="grand-total">₹0.00</b></div></div>
+        <div id="order-message" class="rh-inline-message" aria-live="polite"></div><button type="button" id="place-order" class="rh-button rh-button-primary rh-place-order">Create restaurant order <span>→</span></button><small class="rh-order-footnote">Prices and taxes are checked again when the order is saved.</small>
+      </aside>
+    </div>
+  </section>
+  <section id="existing-orders-view" class="rh-waiter-view" hidden>
+    <div class="rh-section-heading"><div><span class="rh-eyebrow">YOUR RESTAURANT ORDERS</span><h2>Service activity</h2><p>Orders shown here follow your Frappe account permissions.</p></div><button type="button" class="rh-button rh-button-outline" id="orders-refresh">↻ &nbsp;Reload orders</button></div>
+    <div id="orders-message" class="rh-inline-message" aria-live="polite"></div>
+    <div class="rh-table-wrap"><table class="rh-table rh-waiter-table"><thead><tr><th>ORDER</th><th>CUSTOMER</th><th>TYPE</th><th>DATE</th><th>STATUS</th><th>TOTAL</th><th></th></tr></thead><tbody id="waiter-orders"><tr><td colspan="7" class="rh-empty">Loading orders…</td></tr></tbody></table></div>
+    <div id="waiter-order-detail" class="rh-panel rh-order-detail" hidden></div>
+  </section>
+</main>
+<script src="/assets/restaurant_management/js/common.js?v=20261109-4"></script>
+<script src="/assets/restaurant_management/js/waiter.js?v=20261109-6"></script>
+{% endblock %}

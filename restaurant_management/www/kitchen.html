@@ -1,0 +1,11 @@
+{% extends "templates/web.html" %}
+{% block page_content %}
+<link rel="stylesheet" href="/assets/restaurant_management/css/restaurant.css">
+<main class="rh-shell" data-restaurant-manager="{{ 1 if is_manager else 0 }}">
+  <header class="rh-topbar"><a href="/" class="rh-wordmark"><span>✳</span> FOODHUB <small>KITCHEN</small></a><div class="rh-top-actions"><span class="rh-user-chip">Head Chef</span><button type="button" class="rh-button rh-button-quiet" data-restaurant-logout>Sign out</button></div></header>
+  <section class="rh-page-heading"><div><span class="rh-eyebrow">THE PASS · SERVICE BOARD</span><h1>Kitchen, in rhythm.</h1><p>Incoming orders, ready for your team.</p></div><button id="refresh-kitchen" class="rh-button rh-button-outline">↻ &nbsp;Refresh queue</button></section>
+  <div class="rh-stat-grid"><article class="rh-stat"><span>WAITING TO START</span><strong id="kitchen-pending-count">—</strong><small>Orders in the queue</small></article><article class="rh-stat"><span>IN PREPARATION</span><strong id="kitchen-active-count">—</strong><small>Orders being worked on</small></article><article class="rh-stat rh-stat-accent"><span>YOUR FOCUS</span><strong>One plate<br>at a time.</strong><small>Fresh queue · live from service</small></article></div>
+  <section class="rh-board-section"><div class="rh-section-heading"><div><h2>Order queue</h2><p>Oldest orders appear first.</p></div><span class="rh-live-label"><i></i> LIVE QUEUE</span></div><div id="kitchen-message" class="rh-inline-message" aria-live="polite"></div><div id="kitchen-orders" class="rh-order-grid"><div class="rh-empty">Loading the kitchen queue…</div></div></section>
+</main>
+<script src="/assets/restaurant_management/js/common.js?v=20261109-4"></script><script src="/assets/restaurant_management/js/kitchen.js?v=20261109-5"></script>
+{% endblock %}

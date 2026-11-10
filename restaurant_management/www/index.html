@@ -1,0 +1,30 @@
+{% extends "templates/web.html" %}
+
+{% block page_content %}
+<link rel="stylesheet" href="/assets/restaurant_management/css/restaurant.css">
+<header class="rh-landing-nav"><a href="/" class="rh-wordmark"><span>✳</span> FOODHUB <small>RESTAURANT</small></a><a class="rh-button rh-button-outline" href="/restaurant-login">Team sign in <span>→</span></a></header>
+<main class="rh-home">
+  <div class="rh-home-copy">
+    <span class="rh-eyebrow">FOODHUB · RESTAURANT OPERATIONS</span>
+    <h1>Good food starts<br>with a <em>great team.</em></h1>
+    <p>One calm, connected workspace for taking orders, preparing every plate, and keeping the whole restaurant in view.</p>
+    <a class="rh-button rh-button-primary" href="/restaurant-login">Sign in to your workspace <span>→</span></a>
+    <div class="rh-trust"><span class="rh-dot"></span> A dedicated space for every shift</div>
+  </div>
+  <div class="rh-home-art" aria-label="Restaurant operations overview">
+    <div class="rh-art-glow"></div><div class="rh-art-top"><span>TONIGHT AT FOODHUB</span><span class="rh-live"><i></i> LIVE SERVICE</span></div>
+    <div class="rh-art-dish"><span>✳</span></div>
+    <div class="rh-art-note rh-note-one"><b>01</b><span>Order received<small>Every detail, right where you need it</small></span></div>
+    <div class="rh-art-note rh-note-two"><b>02</b><span>Made with care<small>From the pass to the table</small></span></div>
+    <div class="rh-art-caption">Thoughtful service.<br><em>From first hello to last bite.</em></div>
+    <div class="rh-art-bottom"><span>ON THE FLOOR</span><div class="rh-mini-avatars"><i>W</i><i>C</i><i>M</i></div><b>One team, in sync</b></div>
+  </div>
+</main>
+<section class="rh-roles"><div><span class="rh-eyebrow">BUILT AROUND YOUR SHIFT</span><h2>Everyone has a part to play.</h2></div>
+  <div class="rh-role-grid">
+    <a href="/restaurant-login" class="rh-role-link"><article><span class="rh-role-icon">✳</span><h3>Waiter</h3><p>Explore the menu, build a table order, and send it straight to the kitchen.</p><span class="rh-role-tag">ORDERS · SERVICE</span><span class="rh-role-enter">Open waiter workspace <b>↗</b></span></article></a>
+    <a href="/restaurant-login" class="rh-role-link"><article><span class="rh-role-icon">♨</span><h3>Head Chef</h3><p>Keep the kitchen moving with a clear queue and simple order workflow actions.</p><span class="rh-role-tag">KITCHEN · PREPARATION</span><span class="rh-role-enter">Open kitchen workspace <b>↗</b></span></article></a>
+    <a href="/restaurant-login" class="rh-role-link"><article><span class="rh-role-icon">⌁</span><h3>Restaurant Manager</h3><p>Stay on top of service, order progress, menu records, and daily sales.</p><span class="rh-role-tag">OVERVIEW · OPERATIONS</span><span class="rh-role-enter">Open manager workspace <b>↗</b></span></article></a>
+  </div>
+</section>
+{% endblock %}

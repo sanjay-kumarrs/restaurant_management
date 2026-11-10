@@ -5,6 +5,16 @@ app_description = "This is a restuarant auntomation project"
 app_email = "kumarssanjayofficial@gmail.com"
 app_license = "mit"
 
+# Keep Frappe's conventional sign-in URL on the restaurant's custom page.
+website_redirects = [
+    {"source": "/login", "target": "/restaurant-login"},
+    # A Website Page record on /waiter shadows the app's www page. Keep the
+    # public URL while routing the waiter UI to its unique app route.
+    {"source": "/waiter", "target": "/waiter_service"},
+    # Use the same unique app route strategy for manager workspace pages.
+    {"source": "/manager", "target": "/manager_service"},
+]
+
 # Apps
 # ------------------
 
@@ -253,3 +263,4 @@ app_license = "mit"
 # List of apps whose translatable strings should be excluded from this app's translations.
 # ignore_translatable_strings_from = []
 
+get_website_user_home_page = "restaurant_management.website.get_home_page"
